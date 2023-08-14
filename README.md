@@ -12,3 +12,9 @@
 `npm run start` — запускает сервер   
 `npm run dev` — запускает сервер с hot-reload   
 `npm run lint` — запуск плагина ESlint
+
+## Ссылки на проект
+
+IP 84.252.143.238
+
+https://api.wildjuk.nomoreparties.co/
