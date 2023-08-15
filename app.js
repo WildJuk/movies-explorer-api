@@ -9,7 +9,7 @@ const rateLimit = require('express-rate-limit');
 const UnknowErr = require('./middlewares/unknow-err');
 const router = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { DATA_BASE_URI, PORT } = require('./config');
+const { NODE_ENV, DATA_BASE_URI, PORT } = require('./config');
 
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000,
@@ -20,7 +20,7 @@ const limiter = rateLimit({
 
 const app = express();
 
-mongoose.connect(DATA_BASE_URI);
+mongoose.connect(NODE_ENV === 'production' ? DATA_BASE_URI : 'mongodb://127.0.0.1:27017/bitfilmsdb');
 
 app.use(helmet());
 
